@@ -1,0 +1,42 @@
+
+
+div#gameContainer {
+	width: 900px;
+	height: 900px;
+	background-color: red;
+}
+
+#messages {
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	background-color: green;
+	margin-top:20px;
+	margin-left: 10px;
+}
+
+#grocerylistss{
+	margin-top: 10px;
+	position: absolute;
+}
+
+.groceryList {
+	display: none;
+}
+
+.boyNames {
+	display: none;
+}
+
+.girlNames {
+	display: none;
+}
+
+.Countries {
+	display: none;
+}
+
+
+#playerText {
+	margin: 5px;
+}
