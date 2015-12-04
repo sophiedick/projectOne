@@ -32,6 +32,7 @@ var myNewTextElement = $("<input type='text' value=''>");
 var playerWords = [];
 var wrongGuesses = [];
 
+var clickCount = 0;
 var counter = 0;
 playerOne = prompt("Player one please enter your name?");
 console.log(playerOne);
@@ -63,21 +64,29 @@ submitButton.click(function(){ // This function pushes all the players guesses t
 	
 	if(($.inArray(playerText.val(), List1Array)) != -1) {
 	    console.log("Correct");
-	    counter ++;
-	    console.log(counter);
-	    playerWords.push(playerText.val());
-	    console.log(playerWords);
-	    //return counter;
-	     
+	    
+	
+    	if($.inArray(playerText.val(), playerWords)) == -1){
+		    playerWords.push(playerText.val());
+		    counter ++;
+		    console.log(counter);
+		    console.log(playerWords);
+		
 
-	    	if(playerWords.length == List1Array.length) {
-	    		alert("That is the end of your turn, your score is " + counter + " out of 7!");
-	    	}
-
-	} else {
-	    console.log("Incorrect, please try again!");
-	    wrongGuesses.push(playerText.val());
-	    console.log(wrongGuesses);
+			if(submitButton.click){
+				clickCount++;
+				console.log(clickCount);
+				return clickCount;
+			    //return counter;
+		     		if (clickCount > 2) {
+		    		alert("That is the end of your turn, your score is " + counter + " out of 7!");
+		    	}
+		    }
+		}
+				else {
+				    console.log("Incorrect, please try again!");
+				    wrongGuesses.push(playerText.val());
+				    console.log(wrongGuesses);
 	}
 });
 
@@ -85,8 +94,6 @@ submitButton.click(function(){ // This function pushes all the players guesses t
 //console.log(List1Array);
 
 
-
-	  
 
 
 	// var length = Math.min(List1Array.length,playerWords.length);
