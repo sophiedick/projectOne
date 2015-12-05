@@ -58,35 +58,26 @@ submitButton.click(function(){ // This function pushes all the players guesses t
 		// playerWords.push(playerText.val()); 
 		// console.log(playerWords);
 
-// COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY:
+// COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY: THIS WORKS could be tidied up but mostly working. 
 
 	console.log(playerText.val());
 	
 	if(($.inArray(playerText.val(), List1Array)) != -1) {
 	    console.log("Correct");
-	    
-	
-    	if($.inArray(playerText.val(), playerWords)) == -1){
-		    playerWords.push(playerText.val());
-		    counter ++;
-		    console.log(counter);
-		    console.log(playerWords);
-		
-
-			if(submitButton.click){
-				clickCount++;
-				console.log(clickCount);
-				return clickCount;
-			    //return counter;
-		     		if (clickCount > 2) {
-		    		alert("That is the end of your turn, your score is " + counter + " out of 7!");
+	    playerWords.push(playerText.val());
+		counter ++;
+		clickCount++
+    	console.log(counter);
+		console.log(playerWords);
+    	
+		if(clickCount > List1Array){
+			alert("That is the end of your turn, your score is " + counter + " out of 7!");
 		    	}
-		    }
 		}
-				else {
-				    console.log("Incorrect, please try again!");
-				    wrongGuesses.push(playerText.val());
-				    console.log(wrongGuesses);
+		
+	else {console.log("Incorrect, please try again!");
+		  wrongGuesses.push(playerText.val());
+		  console.log(wrongGuesses);
 	}
 });
 
