@@ -68,11 +68,11 @@ var counter = 0;
 
 
 
-playerOne = prompt("Player one please enter your name?");
-console.log(playerOne);
+// playerOne = prompt("Player one please enter your name?");
+// console.log(playerOne);
 
-playerTwo = prompt("Player two please enter your name?");
-console.log(playerTwo);
+// playerTwo = prompt("Player two please enter your name?");
+// console.log(playerTwo);
 
 
 //This function shows Grocery List then hides it. 
@@ -84,7 +84,7 @@ function showList1(){
 	setTimeout(function(){
 		List1.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 10000); 
+	}, 3000); 
 	};
 
 function showList2(){
@@ -92,7 +92,7 @@ function showList2(){
 	setTimeout(function(){
 		List2.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 10000); 
+	}, 3000); 
 	}
 
 
@@ -101,7 +101,7 @@ function showList3(){
 	setTimeout(function(){
 		List3.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 10000); 
+	}, 3000); 
 	}
 
 function showList4(){
@@ -109,43 +109,66 @@ function showList4(){
 	setTimeout(function(){
 		List4.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 10000); 
+	}, 3000); 
 	}
 
-showList1(); // This calls the showListFunction - lists and shown and hidden.  
-setTimeout(showList2, 10000);
-setTimeout(showList3, 20000);
-setTimeout(showList4, 30000);
-setTimeout(randomPlay, 40000);
+// showList1(); // This calls the showListFunction - lists and shown and hidden.  
+// setTimeout(showList2, 10000);
+// setTimeout(showList3, 20000);
+// setTimeout(showList4, 30000);
+// setTimeout(randomPlay, 40000);
 
 
 // Randomly ask user for inputs
 
-	function randomPlay() {
-	    var randomNumber = Math.random();
-	    if (randomNumber < 0.24) {
-	    	messages.html("Please enter as many items from the Grocery List");
+	function listGenerator(number) {
+	    if (number === 1) {
 	        return List1Array;
-	    } else if (randomNumber < 0.49) {
-	    	messages.html("Please enter as many boys names as you can remember");
+	    } else if (number === 2) {
 	        return List2Array;
-	    } else if (randomNumber < 0.75) {
-	    	messages.html("Please enter as many girls names as you can remember");
+	    } else if (number === 3) {
 	        return List3Array;
-	    } else {
-	    	messages.html("Please enter as many country names as you can remember");
+	    } else if (number === 4){
 	        return List4Array;
 	    } 
 	}
 
+	function pickAList(){
+	    var randomNumber = Math.random();
+	    if (randomNumber < 0.24) {
+	        return 1;
+	    } else if (randomNumber < 0.49) {	    	
+	        return 2;
+	    } else if (randomNumber < 0.75) {
+	        return 3;
+	    } else {
+	        return 4;
+	    } 
+	}
 
+	function displayQuestion(number) {
+	    if (number ===1) {
+	    	messages.html("Please enter as many items from the Grocery List");
+	    } else if (number === 2) {
+	    	messages.html("Please enter as many boys names as you can remember");
+	    } else if (number === 3) {
+	    	messages.html("Please enter as many girls names as you can remember");
+	    } else if (number ===4){
+	    	messages.html("Please enter as many country names as you can remember");
+	    } 
+	}
+
+var thisGameAnswerNumber = pickAList(); 	
+var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
+
+function checkWins(){
 submitButton.click(function(){ // This function pushes all the players guesses to an array named player words 
 
 // COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY: THIS WORKS could be tidied up but mostly working. 
 
 	console.log(playerText.val());
 	
-	if(($.inArray(playerText.val(), List1Array)) != -1) {
+	if(($.inArray(playerText.val(), thisGameAnswerArray)) != -1) {
 	    console.log("Correct");
 	    playerWords.push(playerText.val());
 		counter ++;
@@ -165,10 +188,27 @@ submitButton.click(function(){ // This function pushes all the players guesses t
 		  console.log(clickCount);
 
 		  if(clickCount == List1Array.length){
-		  	message.html("That is the end of your turn, your score is " + counter + "/7!");
+		  	messages.html("That is the end of your turn, your score is " + counter + "/7!");
 		      	}
-	}
-});
+		}
+	});
+}
+
+
+function startGame(){
+	var thisGameAnswerNumber = pickAList(); 
+	var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
+
+	showList1(); // This calls the showListFunction - lists and shown and hidden.  
+	setTimeout(showList2, 3000);
+	setTimeout(showList3, 6000);
+	setTimeout(showList4, 90000);
+	setTimeout(function(){displayQuestion(thisGameAnswerNumber)}, 12000);
+	checkWins();
+}
+
+startGame();
+
 
 
 });
