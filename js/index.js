@@ -76,15 +76,13 @@ var counter = 0;
 
 //This function shows Grocery List then hides it. 
 function showList1(){
-	List1.show(function(){
-		// gameContainer.css("background", "url(http://www.sparklebox.co.uk/blue/3721-3730/_wp_generated/pp50cce857_1b.jpg) no-repeat"); 
-		});
-	
+	List1.show();
 	setTimeout(function(){
 		List1.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
 	}, 10000); 
-	};
+	}
+
 
 function showList2(){
 	List2.show();
@@ -113,13 +111,13 @@ function showList4(){
 
 
 
-// showList1(); // This calls the showListFunction - lists and shown and hidden.  
-// setTimeout(showList2, 10000);
-// setTimeout(showList3, 20000);
-// setTimeout(showList4, 30000);
-// setTimeout(randomPlay, 40000);
+//ANIMATION FUNCTIONALITY
 
+// function animation(){
+// 	$(".listContainer").slide(left: "250px");
+// }
 
+// animation();
 // Randomly ask user for inputs
 
 var thisGameAnswerNumber = pickAList(); 	
@@ -225,8 +223,6 @@ function startGame(){
 }
 
 startGame();
-
-
 
 });
 
