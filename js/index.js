@@ -39,17 +39,17 @@ List4.each(function() {
 
 //console.log(List1Array); This works it pushes all the text to an array to be compared later. 
 
-// var boyNames = $(".boyNames");
+var boyNames = $(".boyNames");
 // console.log(boyNames);
 
-// var girlNames = $(".girlNames");
+var girlNames = $(".girlNames");
 // console.log(girlNames);
 
-// var countries = $(".Countries");
+var countries = $(".Countries");
 // console.log(countries);
 
 var gameContainer = $("#gameContainer");
-console.log(gameContainer);
+// console.log(gameContainer);
 
 var messages = $("#messages");
 
@@ -122,6 +122,10 @@ function showList4(){
 
 // Randomly ask user for inputs
 
+var thisGameAnswerNumber = pickAList(); 	
+var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
+
+
 	function listGenerator(number) {
 	    if (number === 1) {
 	        return List1Array;
@@ -159,19 +163,21 @@ function showList4(){
 	    } 
 	}
 
-var thisGameAnswerNumber = pickAList(); 	
-var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
+// var thisGameAnswerNumber = pickAList(); 	
+// var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
 
 
-function checkWins(){
+function checkWins(number){
 submitButton.click(function(){ // This function pushes all the players guesses to an array named player words 
 
 // COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY: THIS WORKS could be tidied up but mostly working. 
 
-	console.log(playerText.val());
+	// console.log(playerText.val());
 	console.log(thisGameAnswerArray);
+	var gameArray = listGenerator(number);
 	
-	if(($.inArray(playerText.val(), thisGameAnswerArray)) != -1) {
+	if(($.inArray(playerText.val(), gameArray)) != -1) {
+		console.log(thisGameAnswerArray);
 	    console.log("Correct");
 	    playerWords.push(playerText.val());
 		counter ++;
@@ -184,13 +190,13 @@ submitButton.click(function(){ // This function pushes all the players guesses t
 		    	}
 		}
 		
-	else {console.log("Incorrect, please try again!");
-		  wrongGuesses.push(playerText.val());
-		  console.log(wrongGuesses);
-		  clickCount++;
-		  console.log(clickCount);
+		else {console.log("Incorrect, please try again!");
+			  wrongGuesses.push(playerText.val());
+			  console.log(wrongGuesses);
+			  clickCount++;
+			  console.log(clickCount);
 
-		  if(clickCount == List1Array.length){
+		if(clickCount == List1Array.length){
 		  	messages.html("That is the end of your turn, your score is " + counter + "/7!");
 		      	}
 		}
@@ -203,15 +209,19 @@ function startGame(){
 	var numberToPass = thisGameAnswerNumber;
 	var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
 	console.log(thisGameAnswerNumber);
-	console.log(thisGameAnswerArray);
+	// 	
 
 	showList1(); // This calls the showListFunction - lists and shown and hidden.  
 	setTimeout(showList2, 10000);
 	setTimeout(showList3, 20000);
 	setTimeout(showList4, 30000);
 
-	setTimeout(function(){displayQuestion(thisGameAnswerNumber)}, 12000);
-	checkWins();
+	setTimeout(function(){
+		console.log(thisGameAnswerNumber);
+		displayQuestion(thisGameAnswerNumber);
+		checkWins(thisGameAnswerNumber);
+	}, 40000);
+	
 }
 
 startGame();
