@@ -11,6 +11,33 @@ List1.each(function() {
 	console.log(List1Array);
 });
 
+var List2 = $(".list2");
+//console.log(List2); 
+
+var List2Array = [];
+List2.each(function() {
+	List2Array.push($(this).text());
+	console.log(List2Array);
+});
+
+var List3 = $(".list3");
+//console.log(List3); 
+
+var List3Array = [];
+List3.each(function() {
+	List3Array.push($(this).text());
+	console.log(List3Array);
+});
+
+var List4 = $(".list4");
+//console.log(List3); 
+
+var List4Array = [];
+List4.each(function() {
+	List4Array.push($(this).text());
+	console.log(List4Array);
+});
+
 //console.log(List1Array); This works it pushes all the text to an array to be compared later. 
 
 // var boyNames = $(".boyNames");
@@ -22,8 +49,10 @@ List1.each(function() {
 // var countries = $(".Countries");
 // console.log(countries);
 
-// var gameContainer = $("#gameContainer");
-// console.log(gameContainer);
+var gameContainer = $("#gameContainer");
+console.log(gameContainer);
+
+var messages = $("#messages");
 
 var playerText = $("#playerText");
 var submitButton = $("#submitButton");
@@ -34,6 +63,11 @@ var wrongGuesses = [];
 
 var clickCount = 0;
 var counter = 0;
+
+//Instructions needed here:
+
+
+
 playerOne = prompt("Player one please enter your name?");
 console.log(playerOne);
 
@@ -43,20 +77,69 @@ console.log(playerTwo);
 
 //This function shows Grocery List then hides it. 
 function showList1(){
-	List1.show();
+	List1.show(function(){
+		// gameContainer.css("background", "url(http://www.sparklebox.co.uk/blue/3721-3730/_wp_generated/pp50cce857_1b.jpg) no-repeat"); 
+		});
+	
 	setTimeout(function(){
 		List1.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
 	}, 10000); 
+	};
+
+function showList2(){
+	List2.show();
+	setTimeout(function(){
+		List2.hide();
+		//function to pop up instructions - tell user to start entering guesses and hit submit
+	}, 10000); 
 	}
 
-showList1(); // This calls the showListFunction. 
+
+function showList3(){
+	List3.show();
+	setTimeout(function(){
+		List3.hide();
+		//function to pop up instructions - tell user to start entering guesses and hit submit
+	}, 10000); 
+	}
+
+function showList4(){
+	List4.show();
+	setTimeout(function(){
+		List4.hide();
+		//function to pop up instructions - tell user to start entering guesses and hit submit
+	}, 10000); 
+	}
+
+showList1(); // This calls the showListFunction - lists and shown and hidden.  
+setTimeout(showList2, 10000);
+setTimeout(showList3, 20000);
+setTimeout(showList4, 30000);
+setTimeout(randomPlay, 40000);
+
+
+// Randomly ask user for inputs
+
+	function randomPlay() {
+	    var randomNumber = Math.random();
+	    if (randomNumber < 0.24) {
+	    	messages.html("Please enter as many items from the Grocery List");
+	        return List1Array;
+	    } else if (randomNumber < 0.49) {
+	    	messages.html("Please enter as many boys names as you can remember");
+	        return List2Array;
+	    } else if (randomNumber < 0.75) {
+	    	messages.html("Please enter as many girls names as you can remember");
+	        return List3Array;
+	    } else {
+	    	messages.html("Please enter as many country names as you can remember");
+	        return List4Array;
+	    } 
+	}
 
 
 submitButton.click(function(){ // This function pushes all the players guesses to an array named player words 
-
-		// playerWords.push(playerText.val()); 
-		// console.log(playerWords);
 
 // COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY: THIS WORKS could be tidied up but mostly working. 
 
@@ -70,99 +153,22 @@ submitButton.click(function(){ // This function pushes all the players guesses t
     	console.log(counter);
 		console.log(playerWords);
     	
-		if(clickCount > List1Array){
-			alert("That is the end of your turn, your score is " + counter + " out of 7!");
+		if(clickCount == List1Array.length){
+			messages.html("That is the end of your turn, your score is " + counter + "/7!");
 		    	}
 		}
 		
 	else {console.log("Incorrect, please try again!");
 		  wrongGuesses.push(playerText.val());
 		  console.log(wrongGuesses);
+		  clickCount++;
+		  console.log(clickCount);
+
+		  if(clickCount == List1Array.length){
+		  	message.html("That is the end of your turn, your score is " + counter + "/7!");
+		      	}
 	}
 });
-
-
-//console.log(List1Array);
-
-
-
-
-	// var length = Math.min(List1Array.length,playerWords.length);
-	// var countMatched = 0;
-	// var countNotMatched = 0;
-
-	// for(var index=0; index<length;index++){
-
-	//   	if(List1Array[index] == playerWords[index]) {
-	//   		countMatched++;	
-	//   		alert("You have matched " + countMatched);
-	//   		console.log(countMatched);
-	    	
-	//   	} else {
-	//     	countNotMatched++;
-	//     	console.log("Sorry try again, thats's not in the list");
-	//     }
-
-	//     //console.log(countNotMatched);
-	// }
-
-
-// TEST FOR 
-
-
-//PROVIDE A SCORE
-
-
-
-
-///////////////////////////////////////////////CODE IS EXECUTING UNTIL HERE
-// setTimeout(function(){
-// 	checkValueOnce();
-// }, 20000); 
-
-
-
-// function checkValueOnce() {
-
-// 	var length = Math.min(List1Array.length,playerWords.length);
-// 	var countMatched = 0;
-// 	var countNotMatched = 0;
-
-// 	for(var index=0; index<length;index++){
-
-// 	  	if(List1Array[index] == playerWords[index]) {
-// 	  		countMatched++;	
-// 	  	} else {
-// 	    	countNotMatched++;
-// 	    }
-// 	}
-// 	// console.log(countMatched);
-// 	// console.log(countNotMatched);	
-// };
-
-// checkValueOnce();
-
-
-
-
-// function checkValues() {
-
-// 	var length = Math.min(List1Array.length,playerWords.length);
-// 	var countMatched = 0,countNotMatched = 0;
-
-// 	for(var index=0; index<length;index++){
-
-//   	if(List1Array[index] == playerWords[index])
-//     countMatched++;
-
-//   	else if(playerWords.indexOf(List1Array[index]) >= 0)
-//     countNotMatched++;
-// }
-
-// alert(countMatched );
-// alert(countNotMatched);
-
-// };
 
 
 });

@@ -1,42 +1,59 @@
 
 
 div#gameContainer {
-	width: 900px;
-	height: 900px;
+	width: 1200px;
+	height:250px;
 	background-color: red;
+	margin: 0 auto;
+	position: relative;
+	/*margin-top: 50px*/
 }
 
 #messages {
-	position: absolute;
+	/*position: absolute;*/
 	width: 300px;
 	height: 100px;
 	background-color: green;
 	margin-top:20px;
 	margin-left: 10px;
+	margin: 0 auto;
 }
 
 #grocerylistss{
-	margin-top: 10px;
-	position: absolute;
+	margin-top: 700px;
+	/*position: absolute;*/
 }
 
-.groceryList {
+.List1 {
+	display: none;
+	font-size: 18px;
+}
+
+.list2 {
 	display: none;
 }
 
-.boyNames {
+.list3 {
 	display: none;
 }
 
-.girlNames {
+.list4 {
 	display: none;
 }
 
-.Countries {
-	display: none;
+.inputs {
+	margin: 0 auto;
 }
-
 
 #playerText {
 	margin: 5px;
+}
+
+.listContainer{
+	padding-top: 80px;
+	/*background-image: url("http://www.sparklebox.co.uk/blue/3721-3730/_wp_generated/pp50cce857_1b.jpg), no repeat");*/
+}
+
+.listContainer2{
+	background-image: url("https://www.google.co.uk/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiBppT9l8fJAhWBWBoKHV9uAnQQjRwIBw&url=http%3A%2F%2Fwww.crafthubs.com%2Fa-boy-card%2F34275&bvm=bv.108538919,d.d2s&psig=AFQjCNGVmaaOuvb2QY8tfWRrpi8XAA8olQ&ust=1449489620793102), no repeat")''
 }
