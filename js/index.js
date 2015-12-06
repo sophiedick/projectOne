@@ -30,7 +30,6 @@ List3.each(function() {
 });
 
 var List4 = $(".list4");
-//console.log(List3); 
 
 var List4Array = [];
 List4.each(function() {
@@ -84,7 +83,7 @@ function showList1(){
 	setTimeout(function(){
 		List1.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 3000); 
+	}, 10000); 
 	};
 
 function showList2(){
@@ -92,7 +91,7 @@ function showList2(){
 	setTimeout(function(){
 		List2.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 3000); 
+	}, 10000); 
 	}
 
 
@@ -101,7 +100,7 @@ function showList3(){
 	setTimeout(function(){
 		List3.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 3000); 
+	}, 10000); 
 	}
 
 function showList4(){
@@ -109,8 +108,10 @@ function showList4(){
 	setTimeout(function(){
 		List4.hide();
 		//function to pop up instructions - tell user to start entering guesses and hit submit
-	}, 3000); 
+	}, 10000); 
 	}
+
+
 
 // showList1(); // This calls the showListFunction - lists and shown and hidden.  
 // setTimeout(showList2, 10000);
@@ -148,7 +149,7 @@ function showList4(){
 
 	function displayQuestion(number) {
 	    if (number ===1) {
-	    	messages.html("Please enter as many items from the Grocery List");
+	    	messages.html("Please enter as many items as you can remember from the Grocery List");
 	    } else if (number === 2) {
 	    	messages.html("Please enter as many boys names as you can remember");
 	    } else if (number === 3) {
@@ -161,12 +162,14 @@ function showList4(){
 var thisGameAnswerNumber = pickAList(); 	
 var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
 
+
 function checkWins(){
 submitButton.click(function(){ // This function pushes all the players guesses to an array named player words 
 
 // COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY: THIS WORKS could be tidied up but mostly working. 
 
 	console.log(playerText.val());
+	console.log(thisGameAnswerArray);
 	
 	if(($.inArray(playerText.val(), thisGameAnswerArray)) != -1) {
 	    console.log("Correct");
@@ -197,12 +200,16 @@ submitButton.click(function(){ // This function pushes all the players guesses t
 
 function startGame(){
 	var thisGameAnswerNumber = pickAList(); 
+	var numberToPass = thisGameAnswerNumber;
 	var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
+	console.log(thisGameAnswerNumber);
+	console.log(thisGameAnswerArray);
 
 	showList1(); // This calls the showListFunction - lists and shown and hidden.  
-	setTimeout(showList2, 3000);
-	setTimeout(showList3, 6000);
-	setTimeout(showList4, 90000);
+	setTimeout(showList2, 10000);
+	setTimeout(showList3, 20000);
+	setTimeout(showList4, 30000);
+
 	setTimeout(function(){displayQuestion(thisGameAnswerNumber)}, 12000);
 	checkWins();
 }
