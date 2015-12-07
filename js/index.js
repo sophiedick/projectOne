@@ -79,6 +79,12 @@ $(document).ready(function() {
 	//This function shows Grocery List then hides it. 
 	function showList1(){
 		List1.show();
+		$(".listContainer").animate({left: "+=1200"}, 2000);
+		$(".listContainer").animate({left: "-=1200"}, 2000);
+		$(".listContainer").animate({left: "+=1200"}, 2000);
+		$(".listContainer").animate({left: "-=1200"}, 2000);
+		$(".listContainer").animate({left: "+=1200"}, 2000);
+		$(".listContainer").animate({left: "-=1200"}, 2000);
 		setTimeout(function(){
 			List1.hide();
 			//function to pop up instructions - tell user to start entering guesses and hit submit
@@ -88,6 +94,15 @@ $(document).ready(function() {
 
 	function showList2(){
 		List2.show();
+		$(".listContainer2").animate({left: "+=1200"}, 2000);
+		$(".listContainer2").animate({left: "-=1200"}, 2000);
+		$(".listContainer2").animate({left: "+=1200"}, 2000);
+		$(".listContainer2").animate({left: "-=1200"}, 2000);
+		$(".listContainer2").animate({left: "+=1200"}, 2000);
+		$(".listContainer2").animate({left: "-=1200"}, 2000);
+		$(".listContainer2").animate({left: "+=1200"}, 2000);
+		$(".listContainer2").animate({left: "-=1200"}, 2000);
+
 		setTimeout(function(){
 			List2.hide();
 			//function to pop up instructions - tell user to start entering guesses and hit submit
@@ -97,6 +112,14 @@ $(document).ready(function() {
 
 	function showList3(){
 		List3.show();
+		$(".listContainer3").animate({left: "+=1200"}, 2000, "swing");
+		$(".listContainer3").animate({left: "-=1200"}, 2000);
+		$(".listContainer3").animate({left: "+=1200"}, 2000);
+		$(".listContainer3").animate({left: "-=1200"}, 2000);
+		$(".listContainer3").animate({left: "+=1200"}, 2000);
+		$(".listContainer3").animate({left: "-=1200"}, 2000);
+		$(".listContainer3").animate({left: "+=1200"}, 2000);
+		$(".listContainer3").animate({left: "-=1200"}, 2000);
 		setTimeout(function(){
 			List3.hide();
 			//function to pop up instructions - tell user to start entering guesses and hit submit
@@ -105,13 +128,48 @@ $(document).ready(function() {
 
 	function showList4(){
 		List4.show();
+		$(".listContainer4").animate({left: "+=1200"}, 2000, "swing");
+		$(".listContainer4").animate({left: "-=1200"}, 2000);
+		$(".listContainer4").animate({left: "+=1200"}, 2000);
+		$(".listContainer4").animate({left: "-=1200"}, 2000);
+		$(".listContainer4").animate({left: "+=1200"}, 2000);
+		$(".listContainer4").animate({left: "-=1200"}, 2000);
+		$(".listContainer4").animate({left: "+=1200"}, 2000);
+		$(".listContainer4").animate({left: "-=1200"}, 2000);
 		setTimeout(function(){
 			List4.hide();
 			//function to pop up instructions - tell user to start entering guesses and hit submit
 		}, 10000); 
 	}
 
-	//ANIMATION FUNCTIONALITY
+	//ANIMATION FUNCTIONALITY\
+
+
+
+	function makeNewPosition(){
+	    
+	    // Get viewport dimensions (remove the dimension of the div)
+	    var h = $(window).height() - 50;
+	    var w = $(window).width() - 50;
+	    
+	    var nh = Math.floor(Math.random() * h);
+	    var nw = Math.floor(Math.random() * w);
+	    
+	    return [nh,nw];    
+	    
+	}
+
+	function animateDiv(){
+	    var newq = makeNewPosition();
+	    $('.listContainer').animate({ top: newq[0], left: newq[1] }, function(){
+	      animateDiv();        
+	    });
+	    
+	};
+
+
+
+
 
 	// function animation(){
 	// 	$(".listContainer").slide(left: "250px");
@@ -178,9 +236,11 @@ $(document).ready(function() {
 		
 		if (($.inArray(playerText.val(), gameArray)) != -1) {	
 			// console.log(thisGameAnswerArray);
-		  console.log("Correct");
+		  messages.html("Correct");
+		  playerText.val("");
 
 		  playerWords.push(playerText.val());
+
 			counter++;
 			// $("#player1Scoreboard").html(counter);
 			clickCount++;
@@ -191,6 +251,7 @@ $(document).ready(function() {
 			if (clickCount == List1Array.length) {	
 				messages.html("That is the end of your turn, your score is " + counter + "/7!");
 				gameCount++;
+				updateScore();
 				console.log(gameCount);
 
 				playerOneTurn = !playerOneTurn;
@@ -201,31 +262,39 @@ $(document).ready(function() {
 			  }
 			}
 		} else {
-			message.html("Incorrect, please try again!");
+			messages.html("Incorrect, please try again!");
 			wrongGuesses.push(playerText.val());
 			console.log(wrongGuesses);
 			clickCount++;
+			gameCount++;
+			updateScore();
 			console.log(clickCount);
 
 			if (clickCount == List1Array.length) {
 			  messages.html("That is the end of your turn, your score is " + counter + "/7!");
 				//playerOneTurn = !playerOneTurn;
     		if(gameCount % 2 != 0) {
-					console.log("test");
 		    	resetBoard();
 				}
 			}
 		}
 	};
 	
+	function updateScore(){
+		if (playerOneTurn == true) {
+			$("#player1Scoreboard").html(counter);
+		}else {
+			$("#player2Scoreboard").html(counter);
+		}
+	}
+
 	function resetBoard(){
 		messages.html(playerTwo + " you're up! Get memorising");
 		thisGameAnswerNumber = pickAList(); 
 		thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
 		console.log(thisGameAnswerNumber);
-		playerText.val("");
 		console.log("RESET");
-		$("#player1Scoreboard").html(counter);
+		// $("#player1Scoreboard").html(counter);
 		counter = 0;
 		clickCount = 0;
 		// console.log(clickCount);
@@ -241,15 +310,25 @@ $(document).ready(function() {
 		// 	console.log(thisGameAnswerNumber);
 			displayQuestion(thisGameAnswerNumber);
 			// checkWins(thisGameAnswerNumber);
-		}, 40000);
-		if (clickCount == List1Array.length){
-			console.log("test");
-		 // $("#player2Scoreboard").html(counter);
-		}
+		}, 40000);	
+		console.log("test");
+		//showPlayer2Score();	
+			// if (clickCount == List1Array.length){
+			// 	console.log("test");
+		
+		
+		//}
+	}
 		
 		//}	
+
+	// function showPlayer2Score(){
+	//  $("#player2Scoreboard").html(counter);
+	// }
+
+//showPlayer2Score();
 	
-}
+
 
 	function startGame(){
 		thisGameAnswerNumber = pickAList(); 

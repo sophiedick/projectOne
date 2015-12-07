@@ -2,6 +2,10 @@
   border: 1px dashed #00E5EE;
 }
 
+div.instructions {
+	display:none;
+}
+
 div#gameContainer {
 	width: 1400px;
 	height:900px;
@@ -12,10 +16,21 @@ div#gameContainer {
 	/*margin-top: 50px*/
 }
 
+img {
+	width: 1400px;
+	height:900px;
+	background-color: #2c3e50;
+	/*margin: 0 auto;*/
+	position: relative;
+	/*border-radius: 100%;*/
+	/*margin-top: 50px*/
+
+}
+
 #messages {
 	/*position: absolute;*/
 	width:1400px;
-	height: 100px;
+	height: 190px;
 	background-color: green;
 	margin-top:20px;
 	margin-left: 10px;
@@ -48,6 +63,7 @@ div#gameContainer {
 	/*text-align: center;*/
 	margin:0 auto;
 	color: red;
+
 }
 
 .list3 {
@@ -76,14 +92,25 @@ div#gameContainer {
 	height: 20px;
 }
 
-/*.listContainer{
-	padding-top: 80px;
-	background-image: url("http://www.sparklebox.co.uk/blue/3721-3730/_wp_generated/pp50cce857_1b.jpg), no repeat");
+.listContainer{
+	position:absolute; 
+	top:50px
 }
 
 .listContainer2{
-	background-image: url("https://www.google.co.uk/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiBppT9l8fJAhWBWBoKHV9uAnQQjRwIBw&url=http%3A%2F%2Fwww.crafthubs.com%2Fa-boy-card%2F34275&bvm=bv.108538919,d.d2s&psig=AFQjCNGVmaaOuvb2QY8tfWRrpi8XAA8olQ&ust=1449489620793102), no repeat")''
-}*/
+	position:absolute; 
+	top:50px
+}
+
+.listContainer3{
+	position:absolute; 
+	top:50px
+}
+
+.listContainer4{
+	position:absolute; 
+	top:50px
+}
 
 #nameAndScores {
 	width: 500px;
