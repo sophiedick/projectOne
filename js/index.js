@@ -347,7 +347,8 @@ $(document).ready(function() {
 
 	    	if (gameCount % 2 != 0) {
 					console.log(gameCount);
-			    resetBoard();	
+			    resetBoard();
+			    //compareScores();	
 			  }
 			}
 		} else {
@@ -360,14 +361,15 @@ $(document).ready(function() {
 			// updateScore();
 			console.log(clickCount);
 
-			if (clickCount == 7) {
-			  messages.html("That is the end of your turn, your score is " + counter + "/7!");
-			  gameCount++;
-			  updateScore();
-				playerOneTurn = !playerOneTurn;
-    		if(gameCount % 2 != 0) {
-		    	resetBoard();
-				}
+				if (clickCount == 7) {
+				  messages.html("That is the end of your turn, your score is " + counter + "/7!");
+				  gameCount++;
+				  updateScore();
+				  playerOneTurn = !playerOneTurn;
+	    		if(gameCount % 2 != 0) {
+			    	resetBoard();
+			    	//compareScores();
+					}
 			}
 		}
 	};
@@ -380,13 +382,6 @@ $(document).ready(function() {
 		}
 	}
 
-	function compareResults(){
-		if (playerOneScoreboard.html > playerTwoScoreboard.hmtl) {
-			alert(playerOne + " is the winner!")
-		} else {
-			alert(playerTwo + " is the winner!")
-		}
-	}
 
 
 	function resetBoard(){
