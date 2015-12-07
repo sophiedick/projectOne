@@ -337,7 +337,7 @@ $(document).ready(function() {
 	    	console.log(counter);
 			console.log(playerWords);
 
-			if (clickCount == List1Array.length) {	
+			if (clickCount == 7) {	
 				messages.html("That is the end of your turn, your score is " + counter + "/7!");
 				gameCount++;
 				updateScore();
