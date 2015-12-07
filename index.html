@@ -3,6 +3,7 @@
 <head>
 	<title>BrainSmart</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="js/index.js"></script>
@@ -11,18 +12,25 @@
 </head>
 <body>
 	<div id="instructions"> 
-	BrainSmart 2.0
+	<p>
+	<i class="fa fa-spinner fa-pulse"></i>Welcome to BrainSmart 2.0<i class="fa fa-spinner fa-pulse"></i><br><br>
 
-	This is a game for 2 players designed to test both your memory and concentration levels. 
 
-	There are 4 lists. Each list will populate individually and you will have 10 seconds to memorize all 7 items in the list. 
+	This is a game for 2 players, designed to test both your memory and concentration levels. <br><br>
 
-	After 40 seconds all the lists will have viewed. 
+	You will be shown 4 lists. Each list will populate individually and you will have 10 seconds to memorize all 7 items in the list. <br><br>
 
-	A random generator will then ask you to list all the items in ONE of the 4 lists. 
+	After 40 seconds all the lists will have been shown. <br><br>
 
-	The player who remembers the most items is the winner!
+	A random generator will then ask you to recall the 7 items in ONE of the 4 lists. <br><br>
+
+	The player who remembers the most items is the winner!<br><br>
+	***TIP***<br>
+	All items are listed in an alphabetical order: A-G!<br><br>
+	Good Luck! <br><br>
+	</p>
 	</div>
+
 	<div id="messages"><b>Welcome to Brain Training 2.0</b></div>
 
 	<div id="nameAndScores">
@@ -36,57 +44,61 @@
 	</div>
 
 	<div id="answerInputs">
-	<input class="inputs" id="playerText" type="text" value="">
-	<input class="inputs" id="submitButton" type="button" value="Enter Answer">
+	<input id="playerText" type="text" value="">
+	<input id="submitButton" type="button" value="Enter Answer">
 	</div>
 	
 	<div id="gameContainer"> 
 
 	<div class="listContainer">
-		<ul id="#grocerylistss">
-			<li class="List1">grapes</li>
+		<ul class="fa-ul">
+		<h3 id="groceryList"> <i class="fa fa-cart-plus"></i> Grocery List <i class="fa fa-cart-plus"></i></h3>
 			<li class="List1">apples</li>
+			<li class="List1">bananas</li>
 			<li class="List1">cheese</li>
-			<li class="List1">tuna</li>
-			<li class="List1">beans</li>
-			<li class="List1">shampoo</li>
-			<li class="List1">bread</li>
+			<li class="List1">duck</li>
+			<li class="List1">eggs</li>
+			<li class="List1">feta</li>
+			<li class="List1">grapes</li>
 		</ul>
 		</div>
 
 	<div class="listContainer2">
-		<ul id="#boynamess">
-			<li class="list2">julian</li>
-			<li class="list2">max</li>
+		<ul class="fa-ul">
+		<h3 id="boysNames"> <i class="fa fa-male"></i> Boys Names <i class="fa fa-male"></i></h3>
+			<li class="list2">alex</li>
+			<li class="list2">bob</li>
+			<li class="list2">charlie</li>
+			<li class="list2">david</li>
 			<li class="list2">edward</li>
-			<li class="list2">anthony</li>
-			<li class="list2">thomas</li>
-			<li class="list2">peter</li>
-			<li class="list2">luke</li>
+			<li class="list2">freddie</li>
+			<li class="list2">george</li>
 		</ul>
 	</div>
 
 	<div class="listContainer3">
-		<ul id="#girlnamess">
+		<ul class="fa-ul">
+		<h3 id="girlsNames"> <i class="fa fa-female"></i> Girls Names <i class="fa fa-female"></i></h3>
 			<li class="list3">anna</li>
-			<li class="list3">susan</li>
-			<li class="list3">susannah</li>
-			<li class="list3">harriet</li>
-			<li class="list3">phillipa</li>
-			<li class="list3">victoria</li>
-			<li class="list3">jennifer</li>
+			<li class="list3">bella</li>
+			<li class="list3">charlotte</li>
+			<li class="list3">daniella</li>
+			<li class="list3">edwina</li>
+			<li class="list3">francesca</li>
+			<li class="list3">georgina</li>
 		</ul>
 	</div>
 
 	<div class="listContainer4">
-		<ul id="country">
-			<li class="list4">vietnam</li>
-			<li class="list4">singapore</li>
-			<li class="list4">alaska</li>
-			<li class="list4">botswana</li>
-			<li class="list4">morocco</li>
+		<ul class="fa-ul">
+		<h3 id="europeanCities"> <i class="fa fa-eur"></i> European Cities <i class="fa fa-eur"></i> </h3>
+			<li class="list4">austria</li>
+			<li class="list4">belgium</li>
+			<li class="list4">croatia</li>
 			<li class="list4">denmark</li>
-			<li class="list4">india</li>
+			<li class="list4">estonia</li>
+			<li class="list4">finland</li>
+			<li class="list4">greece</li>
 		</ul>
 	</div>
 

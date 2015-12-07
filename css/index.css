@@ -1,19 +1,41 @@
-*{
+/**{
   border: 1px dashed #00E5EE;
-}
+}*/
 
-div.instructions {
-	display:none;
-}
+#instructions {
+    background: rgba(0, 0, 0, .9);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 700px;
+    height: 900px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    color:white;
+    padding: 20px;
+    text-shadow: 2px 2px 2px black;
+    border: 5px solid white;
+	}
+
 
 div#gameContainer {
 	width: 1400px;
 	height:900px;
-	background-color: #2c3e50;
+	background-color:#000000;
 	/*margin: 0 auto;*/
 	position: relative;
 	/*border-radius: 100%;*/
 	/*margin-top: 50px*/
+}
+
+#gameContainer img{
+    width: 100%;
+    height: 100%;
 }
 
 img {
@@ -31,38 +53,86 @@ img {
 	/*position: absolute;*/
 	width:1400px;
 	height: 190px;
-	background-color: green;
+	background-color:#2d2d2d;
 	margin-top:20px;
-	margin-left: 10px;
-	margin: 0 auto;
+	margin-left: 5px;
 	text-align: center;
 	font-size: 50px;
+	border-radius: 10px;
+	color: white;
 }
+
+#playerText{
+	height:60px;
+	width:250px;
+	font-size: 10px
+
+}
+
 
 #grocerylistss{
 	margin-top: 700px;
 	text-align: center;
-	display: inline;
+	/*display: inline;*/
 	color: red;
 
 	/*position: absolute;*/
 }
 
+#groceryList {
+	display: none;
+	font-size: 70px;
+	color:white;
+	margin:5px;
+	padding: 5px;
+	text-decoration: underline;
+}
+
+#boysNames {
+	display: none;
+	font-size: 70px;
+	color:white;
+	margin:5px;
+	padding: 5px;
+	text-decoration: underline;
+	
+}
+
+#girlsNames {
+	display: none;
+	font-size: 70px;
+	color:white;
+	margin:5px;
+	padding: 5px;
+	text-decoration: underline;
+}
+
+#europeanCities {
+	display: none;
+	font-size: 70px;
+	color:white;
+	margin:5px;
+	padding: 5px;
+	text-decoration: underline;
+}
+
 .List1 {
 	display: none;
 	font-size: 50px;
-	display:block;
+	display:none;
 	/*text-align: center;*/
-	margin:0 auto;
-	color: red;
+	margin:5px;
+	color:white;
+	font-family: verdana;
 }
 
 .list2 {
 	display: none;
 	font-size: 50px;
 	/*text-align: center;*/
-	margin:0 auto;
-	color: red;
+	margin:5px;;
+	color:white;
+	font-family: verdana;
 
 }
 
@@ -70,17 +140,18 @@ img {
 	display: none;
 	font-size: 50px;
 	/*text-align: center;*/
-	margin:0 auto;
-	color: red;
+	margin:5px;
+	color:white;
+	font-family: verdana;
 }
 
 .list4 {
 	display: none;
 	font-size: 50px;
 	/*text-align: center;*/
-	margin:0 auto;
-	color: red;
-}
+	margin:5px;;
+	color:white;
+	font-family: verdana;}
 
 .inputs {
 	margin: 0 auto;
@@ -113,8 +184,8 @@ img {
 }
 
 #nameAndScores {
-	width: 500px;
-	border: 1px solid black;
+	width: 250px;
+	/*border: 1px solid black;*/
 	overflow: hidden; 
 	display: inline-block;
 	margin: 0 auto;
@@ -122,7 +193,7 @@ img {
 
 #nameAndScores2 {
 	width: 500px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	overflow: hidden; 
 	display: inline-block;
 
@@ -131,8 +202,12 @@ img {
 #player1Scoreboard{
 	width: 100px;
 	height:100px;
-	background-color: blue;
+	background-color: black;
 	display: inline-block;
+	border:2px solid white;
+	border-radius: 10px;
+	color: white;
+	font-size:25px;
 	/*float:right;*/
 
 }
@@ -140,17 +215,26 @@ img {
 #player2Scoreboard{
 	width: 100px;
 	height:100px;
-	background-color: blue;
+	background-color: black;
 	display: inline-block;
+	border:2px solid white;
+	border-radius: 10px;
+	color: white;
+	font-size: 25px;
 	/*float:right;*/
 }
 
 #player1Name {
 	width: 100px;
 	height:100px;
-	background-color: blue;
+	background-color: black;
 	display:inline-block;
 	float:left;
+	border:2px solid white;
+	border-radius: 10px;
+	color: white;
+	font-size:25px;
+	margin: 0 auto;
 	/*position: absolute;*/
 	
 }
@@ -158,9 +242,13 @@ img {
 #player2Name {
 	width: 100px;
 	height:100px;
-	background-color: blue;
+	background-color: black;
 	display: inline-block;
 	float: left;
+	border:2px solid white;
+	border-radius: 10px;
+	color: white;
+	font-size:25px;
 }
 
 #answerInputs {
