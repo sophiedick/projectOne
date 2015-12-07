@@ -3,53 +3,67 @@
 }
 
 div#gameContainer {
-	width: 1200px;
-	height:700px;
+	width: 1400px;
+	height:900px;
 	background-color: #2c3e50;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	position: relative;
-	border-radius: 50%;
+	/*border-radius: 100%;*/
 	/*margin-top: 50px*/
 }
 
 #messages {
 	/*position: absolute;*/
-	width:600px;
+	width:1400px;
 	height: 100px;
 	background-color: green;
 	margin-top:20px;
 	margin-left: 10px;
 	margin: 0 auto;
+	text-align: center;
+	font-size: 50px;
 }
 
 #grocerylistss{
 	margin-top: 700px;
 	text-align: center;
 	display: inline;
-	color: white;
+	color: red;
 
 	/*position: absolute;*/
 }
 
 .List1 {
 	display: none;
-	font-size: 18px;
-	display: inline-block;
+	font-size: 50px;
+	display:block;
 	/*text-align: center;*/
 	margin:0 auto;
-	color: white;
+	color: red;
 }
 
 .list2 {
 	display: none;
+	font-size: 50px;
+	/*text-align: center;*/
+	margin:0 auto;
+	color: red;
 }
 
 .list3 {
 	display: none;
+	font-size: 50px;
+	/*text-align: center;*/
+	margin:0 auto;
+	color: red;
 }
 
 .list4 {
 	display: none;
+	font-size: 50px;
+	/*text-align: center;*/
+	margin:0 auto;
+	color: red;
 }
 
 .inputs {
@@ -58,13 +72,80 @@ div#gameContainer {
 
 #playerText {
 	margin: 5px;
+	width: 200px;
+	height: 20px;
 }
 
-.listContainer{
+/*.listContainer{
 	padding-top: 80px;
-	/*background-image: url("http://www.sparklebox.co.uk/blue/3721-3730/_wp_generated/pp50cce857_1b.jpg), no repeat");
+	background-image: url("http://www.sparklebox.co.uk/blue/3721-3730/_wp_generated/pp50cce857_1b.jpg), no repeat");
 }
 
 .listContainer2{
 	background-image: url("https://www.google.co.uk/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiBppT9l8fJAhWBWBoKHV9uAnQQjRwIBw&url=http%3A%2F%2Fwww.crafthubs.com%2Fa-boy-card%2F34275&bvm=bv.108538919,d.d2s&psig=AFQjCNGVmaaOuvb2QY8tfWRrpi8XAA8olQ&ust=1449489620793102), no repeat")''
+}*/
+
+#nameAndScores {
+	width: 500px;
+	border: 1px solid black;
+	overflow: hidden; 
+	display: inline-block;
+	margin: 0 auto;
 }
+
+#nameAndScores2 {
+	width: 500px;
+	border: 1px solid black;
+	overflow: hidden; 
+	display: inline-block;
+
+}
+
+#player1Scoreboard{
+	width: 100px;
+	height:100px;
+	background-color: blue;
+	display: inline-block;
+	/*float:right;*/
+
+}
+
+#player2Scoreboard{
+	width: 100px;
+	height:100px;
+	background-color: blue;
+	display: inline-block;
+	/*float:right;*/
+}
+
+#player1Name {
+	width: 100px;
+	height:100px;
+	background-color: blue;
+	display:inline-block;
+	float:left;
+	/*position: absolute;*/
+	
+}
+
+#player2Name {
+	width: 100px;
+	height:100px;
+	background-color: blue;
+	display: inline-block;
+	float: left;
+}
+
+#answerInputs {
+	display: inline-block;
+	float: right;
+	width: 300px;
+	height: 100px;
+}
+
+
+
+
+
+
+
