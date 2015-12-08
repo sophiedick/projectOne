@@ -72,7 +72,12 @@ img {
 	height:60px;
 	width:250px;
 	font-size: 10px
+}
 
+#answerInputs p{
+	width:40px;
+	height:40px;
+	background-color: red;
 }
 
 

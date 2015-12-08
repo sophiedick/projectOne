@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+	soundManager.setup({
+	  url: '/path/to/swf-files/',
+	  flashVersion: 9,
+});
 //Have console all variables logged these all and they work!
 
 	var List1 = $(".List1");
@@ -64,6 +68,7 @@ $(document).ready(function() {
 	var counter = 0;
 	var gameCount = 0;
 	var playerOneTurn = true;
+	var lives = 7;
 
 	var playerOneScoreboard = $("#player1Scoreboard");
 	var playerTwoScoreboard = $("#player2Scoreboard");
@@ -253,7 +258,7 @@ $(document).ready(function() {
 		if (($.inArray(playerText.val(), gameArray)) != -1) {	
 			// console.log(thisGameAnswerArray);
 		  messages.html("Correct");
-
+		  correctSound();
 			playerWords.push(playerText.val());
 		  var itemToRemove = playerText.val();
 		  gameArray.splice($.inArray(itemToRemove, gameArray),1);
@@ -262,8 +267,11 @@ $(document).ready(function() {
 			counter++;
 			// $("#player1Scoreboard").html(counter);
 			clickCount++;
+			lives--;
+			$("#answerInputs p").html(lives);
+			console.log(lives);
 			console.log(clickCount);
-	    	console.log(counter);
+	    console.log(counter);
 			console.log(playerWords);
 
 			if (clickCount == 7) {	
@@ -285,10 +293,13 @@ $(document).ready(function() {
 
 		} else {
 			messages.html("Incorrect, please try again!");
+			wrongSound();
 			wrongGuesses.push(playerText.val());
 			console.log(wrongGuesses);
 			playerText.val("");
 			clickCount++;
+			lives--;
+			$("#answerInputs p").html(lives);
 			// gameCount++;
 			// updateScore();
 			console.log(clickCount);
@@ -380,6 +391,18 @@ $(document).ready(function() {
 		}
 	}
 
+	function wrongSound(){
+		soundManager.createSound({
+		  url: 'sounds/familyfortunes.mp3'
+		}).play();
+	}
+
+	function correctSound(){
+		soundManager.createSound({
+		  url: 'sounds/win.mp3'
+		}).play();
+	}
+
 
 	function startGame(){
 		playerOne = prompt("Player one please enter your name?");
@@ -407,7 +430,6 @@ $(document).ready(function() {
 	seeInstructions();
 	// startGame();
 });
-
 
 
 
