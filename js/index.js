@@ -265,7 +265,7 @@ $(document).ready(function() {
 
 		  playerText.val("");
 			counter++;
-			// $("#player1Scoreboard").html(counter);
+			$("#player1Scoreboard").html(counter);
 			clickCount++;
 			lives--;
 			$("#answerInputs p").html(lives);
@@ -350,6 +350,7 @@ $(document).ready(function() {
 		// $("#player1Scoreboard").html(counter);
 		counter = 0;
 		clickCount = 0;
+		lives =7;
 		// console.log(clickCount);
 		// console.log(counter);
 		playerWords = [];
@@ -389,6 +390,7 @@ $(document).ready(function() {
 		}else {
 			messages.html("It's a draw! Why not play again?");
 		}
+		endSound();
 	}
 
 	function wrongSound(){
@@ -402,6 +404,13 @@ $(document).ready(function() {
 		  url: 'sounds/win.mp3'
 		}).play();
 	}
+
+	function endSound(){
+		soundManager.createSound({
+		  url: 'sounds/end.mp3'
+		}).play();
+	}
+
 
 
 	function startGame(){
