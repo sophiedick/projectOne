@@ -239,80 +239,9 @@ $(document).ready(function() {
     } 
 	}
 
-	// var thisGameAnswerNumber = pickAList(); 	
-	// var thisGameAnswerArray = listGenerator(thisGameAnswerNumber);
 	submitButton.click(function() {
 		checkWins(thisGameAnswerNumber); 
 	});
-
-		// function checkWins(number) { 
-		// 	// This function pushes all the players guesses to an array named player words 
-		// 	// COMPARE ONE ELEMENT AT A TIME WITH THE ARRAY: THIS WORKS could be tidied up but mostly working. 
-		// 	// console.log(playerText.val());
-		// 	console.log(thisGameAnswerArray);
-		// 	var gameArray = listGenerator(number);
-			
-		// 	if (($.inArray(playerText.val(), gameArray)) != -1) {	
-		// 		// console.log(thisGameAnswerArray);
-		// 	  	messages.html("Correct");
-
-		// 	  	//playerWords.push(playerText.val());
-		// 	  	var itemToRemove = playerText.val();
-		// 	  	gameArray.splice($.inArray(itemToRemove, gameArray),1);
-		// 		playerText.val("");
-		// 		counter++;
-		// 		clickCount++;
-		// 		console.log(clickCount);
-		//     	console.log(counter);
-		// 		//console.log(playerWords);
-		// 		clickCheck();
-		// 		resettingBoard();
-		// 	}else {
-		// 		messages.html("Incorrect, please try again!");
-		// 		wrongGuesses.push(playerText.val());
-		// 		console.log(wrongGuesses);
-		// 		playerText.val("");
-		// 		clickCount++;
-		// 		// gameCount++;
-		// 		// updateScore();
-		// 		console.log(clickCount);
-		// 		clickCheckWrong();
-		// 		resettingBoard();	
-	 //    	}
-		// };
-
-		// function clickCheckWrong() {
-		// 			if (clickCount == List1Array.length) {
-		// 			  messages.html("That is the end of your turn, your score is " + counter + "/7!");
-		// 			gameCount++;
-		// 			updateScore();
-		// 			playerOneTurn = !playerOneTurn;
-		// 			}
-		// 		}
-
-		// function clickCheck(){
-		// if (clickCount == List1Array.length) {	
-		// 	messages.html("That is the end of your turn, your score is " +counter + "/7!");
-		// 	gameCount++;
-		// 	updateScore();
-		// 	console.log(gameCount);
-		// 	playerOneTurn = !playerOneTurn;
-		// 	}
-		// }
-
-		// function resettingBoard(){
-		// if (gameCount % 2 != 0) {
-		// 		console.log(gameCount);
-		//     resetBoard();	
-		//   		}
-		//   	}
-
-
-
-
-
-
-
 
 	function checkWins(number) { 
 		// This function pushes all the players guesses to an array named player words 
@@ -348,9 +277,12 @@ $(document).ready(function() {
 	    	if (gameCount % 2 != 0) {
 					console.log(gameCount);
 			    resetBoard();
-			    //compareScores();	
-			  }
+			} else {
+			 		compareScores();
 			}
+			    //compareScores();
+			}
+
 		} else {
 			messages.html("Incorrect, please try again!");
 			wrongGuesses.push(playerText.val());
@@ -368,8 +300,9 @@ $(document).ready(function() {
 				  playerOneTurn = !playerOneTurn;
 	    		if(gameCount % 2 != 0) {
 			    	resetBoard();
-			    	//compareScores();
-					}
+					}else {
+						compareScores();
+				}
 			}
 		}
 	};
@@ -418,7 +351,7 @@ $(document).ready(function() {
 		setTimeout(showList4, 30000);
 		setTimeout(function(){
 		// 	console.log(thisGameAnswerNumber);
-			displayQuestion(thisGameAnswerNumber);
+		displayQuestion(thisGameAnswerNumber);
 			// checkWins(thisGameAnswerNumber);
 		}, 40000);	
 			
@@ -429,7 +362,7 @@ $(document).ready(function() {
 		$("#instructions").click(function() {
 			$("#instructions").hide();
 			startGame();
-	})
+	});
 }
 	
 	function compareScores(){
@@ -443,7 +376,7 @@ $(document).ready(function() {
 		}else if (score2 > score1) {
 			messages.html(playerTwo + " you are the winner!");
 		}else {
-			messages.html("I am not sure who has won!");
+			messages.html("It's a draw! Why not play again?");
 		}
 	}
 

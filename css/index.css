@@ -2,6 +2,11 @@
   border: 1px dashed #00E5EE;
 }*/
 
+body {
+
+	background-color: #5c5c5c;
+}
+
 #instructions {
     background: rgba(0, 0, 0, .9);
     bottom: 0;
@@ -10,7 +15,7 @@
     right: 0;
     top: 0;
     z-index: 1;
-    width: 700px;
+    width: 900px;
     height: 900px;
     font-size: 35px;
     font-weight: bold;
@@ -20,6 +25,7 @@
     padding: 20px;
     text-shadow: 2px 2px 2px black;
     border: 5px solid white;
+  /*  border-radius: 50%;*/
 	}
 
 
@@ -29,7 +35,7 @@ div#gameContainer {
 	background-color:#000000;
 	/*margin: 0 auto;*/
 	position: relative;
-	/*border-radius: 100%;*/
+	border-radius: 10px;
 	/*margin-top: 50px*/
 }
 
@@ -39,8 +45,8 @@ div#gameContainer {
 }
 
 img {
-	width: 1400px;
-	height:900px;
+	width: 150px;
+	height:150px;
 	background-color: #2c3e50;
 	/*margin: 0 auto;*/
 	position: relative;
@@ -161,6 +167,8 @@ img {
 	margin: 5px;
 	width: 200px;
 	height: 20px;
+	border-radius: 0px;
+	text-transform: lowercase;
 }
 
 .listContainer{
@@ -256,6 +264,7 @@ img {
 	float: right;
 	width: 300px;
 	height: 100px;
+	border-radius: 10px;
 }
 
 
